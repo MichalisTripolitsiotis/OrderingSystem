@@ -40,4 +40,54 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**  
+     * Return the user is admin
+     *
+     *  @return boolean
+     */
+    public function isAdmin()
+    {
+        return $this->role_id === Role::ADMIN;
+    }
+
+    /**
+     * Return the user is employee
+     *
+     * @return boolean
+     */
+    public function isEmployee()
+    {
+        return $this->role_id === Role::EMPLOYEE;
+    }
+
+    /**
+     * Return the user is client
+     *
+     * @return boolean
+     */
+    public function isClient()
+    {
+        return $this->role_id === Role::CLIENT;
+    }
+
+    /**
+     * Return the user is permitted to manage
+     *
+     * @return boolean
+     */
+    public function canManage()
+    {
+        return $this->isAdmin() || $this->isManager();
+    }
+
+    /**
+     * Return the Role of the specific User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }

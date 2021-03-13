@@ -21,10 +21,10 @@ class CreateFooditemsTable extends Migration
             $table->integer('price');
             $table->text('image');
             $table->boolean('isAvailable')->default(true);
-            $table->unsignedBigInteger('menu_id')->nullable();
-            $table->foreign('menu_id')
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')
                 ->references('id')
-                ->on('menus')
+                ->on('categories')
                 ->onUpdate('cascade')
                 ->onDelete('restrict');
             $table->timestamps();

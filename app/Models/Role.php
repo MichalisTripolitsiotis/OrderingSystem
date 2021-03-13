@@ -23,4 +23,14 @@ class Role extends Model
      * The client role constant
      */
     const CLIENT = 3;
+
+    /**
+     * Get the Users of the specific Role
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }
