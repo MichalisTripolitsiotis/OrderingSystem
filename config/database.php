@@ -35,6 +35,21 @@ return [
 
     'connections' => [
 
+        'orderingsystem_testing' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', 'test_db'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_TESTING_DATABASE'),
+            'username' => env('DB_TESTING_USERNAME'),
+            'password' => env('DB_TESTING_PASSWORD'),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),
@@ -123,7 +138,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [

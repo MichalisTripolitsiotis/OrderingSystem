@@ -23,13 +23,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('/home', [ProfileController::class, 'index'])->name('profile.index');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
-    Route::get('/home', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 });
 
 
-Route::group(['namespace' => 'Client', 'middleware' => ['auth']], function () {
-    Route::get('/home', [ClientController::class, 'index'])->name('client.index');
+Route::group(['prefix' => 'client', 'namespace' => 'Client', 'middleware' => ['auth']], function () {
+    Route::get('/', [ClientController::class, 'index'])->name('client.index');
 });
