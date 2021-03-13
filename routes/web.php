@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +23,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [ProfileController::class, 'index'])->name('profile.index');
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('/home', [AdminController::class, 'index'])->name('admin.index');
+});
+
+
+Route::group(['namespace' => 'Client', 'middleware' => ['auth']], function () {
+    Route::get('/home', [ClientController::class, 'index'])->name('client.index');
+});

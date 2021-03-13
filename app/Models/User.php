@@ -72,16 +72,6 @@ class User extends Authenticatable
     }
 
     /**
-     * Return the user is permitted to manage
-     *
-     * @return boolean
-     */
-    public function canManage()
-    {
-        return $this->isAdmin() || $this->isManager();
-    }
-
-    /**
      * Return the Role of the specific User
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
