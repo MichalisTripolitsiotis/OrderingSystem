@@ -1,8 +1,25 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+.product-item {
+    margin-top: 50px;
+}
+.product-item .pi-pic img {
+    min-width: 100%;
+    width: 50%;
+    height: 50%;
+}
+
+.add-to-cart-btn {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ff084e;
+    display: block;
+}

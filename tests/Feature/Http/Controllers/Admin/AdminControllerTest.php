@@ -21,16 +21,30 @@ class AdminControllerTest extends TestCase
     }
 
     /**
-     * Admin index page test.
+     * Admin home page test.
      *
      * @test
      */
-    public function indexPageReturns200()
+    public function homePageReturns200()
     {
         $response = $this->actingAs($this->adminUser)
             ->get('/admin');
 
         $response->assertStatus(200);
         $response->assertViewIs('admin.home');
+    }
+
+    /**
+     * Admin welcome page test.
+     *
+     * @test
+     */
+    public function welcomePageReturns200()
+    {
+        $response = $this->actingAs($this->adminUser)
+            ->get('/');
+
+        $response->assertStatus(200);
+        $response->assertViewIs('welcome');
     }
 }
