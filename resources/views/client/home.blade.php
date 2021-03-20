@@ -142,7 +142,7 @@
                                         </div>
                                     </div>
                                     <div class="pi-text">
-                                        <div class="catagory-name">Towel</div>
+                                        <div class="product-name">Towel</div>
                                         <a href="#">
                                             <h5>Pure Pineapple</h5>
                                         </a>

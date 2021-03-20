@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -27,6 +28,10 @@ Route::get('/home', [ProfileController::class, 'index'])->name('profile.index');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+
+    Route::group(['prefix' => 'categories', 'namespace' => 'Categories'], function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+    });
 });
 
 
