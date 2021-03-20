@@ -10,3 +10,4 @@ class ClientController extends Controller
     {
         return view('client.home');
     }
+}
