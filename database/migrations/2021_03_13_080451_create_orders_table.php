@@ -16,10 +16,20 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('postcode')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('total')->nullable();
             $table->unsignedBigInteger('status_id')->nullable();
             $table->foreign('status_id')
                 ->references('id')
                 ->on('statuses')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('restrict');
             $table->timestamps();
