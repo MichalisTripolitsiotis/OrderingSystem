@@ -7,9 +7,10 @@
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
-
 @import "admin-dashboard-cards";
-
+body {
+    font-family: "Nunito", sans-serif;
+}
 .sidebar {
     position: fixed;
     top: 0;
@@ -53,5 +54,3 @@
 .img-category {
     height: 400px;
 }
-
-

@@ -1,4 +1,4 @@
- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+ <nav class="navbar navbar-expand-md navbar-dark bg-dark">
      <div class="container">
          <a class="navbar-brand" href="{{ url('/') }}">
              {{ config('app.name', 'Laravel') }}
@@ -31,7 +31,11 @@
                          </li>
                      @endif
                  @else
+
                      <ul class="navbar-nav mr-auto">
+                         <li class="nav-item">
+                             <a href="{{ url('/home') }}" class="nav-link">Home</a>
+                         </li>
                          @if (Auth::user()->isClient())
                              <a class="nav-link" href="{{ route('cart.index') }}">
                                  <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
@@ -48,7 +52,7 @@
                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                              <a class="dropdown-item" href="{{ route('logout') }}"
                                  onclick="event.preventDefault();
-                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                         document.getElementById('logout-form').submit();">
                                  {{ __('Logout') }}
                              </a>
 

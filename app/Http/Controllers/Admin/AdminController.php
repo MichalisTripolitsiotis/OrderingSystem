@@ -11,8 +11,6 @@ class AdminController extends Controller
 {
     public function index()
     {
-
-
         $orders = Order::withCount([
             'status as received_status_count' => function ($query) {
                 $query->where('status_id', Status::STATUS_RECEIVED);
@@ -27,8 +25,7 @@ class AdminController extends Controller
                 $query->where('status_id', Status::DELIVERING);
             },
 
-        ])
-            ->get();
+        ])->get();
 
         return view('admin.home', [
             'orders' => $orders
