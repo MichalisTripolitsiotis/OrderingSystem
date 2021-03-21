@@ -10002,6 +10002,58 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.card {
+  border-radius: 5px;
+  box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+  border: none;
+  margin-bottom: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.order-card {
+  color: #fff;
+}
+
+.bg-c-blue {
+  background: linear-gradient(45deg, #4099ff, #73b4ff);
+}
+
+.bg-c-green {
+  background: linear-gradient(45deg, #2ed8b6, #59e0c5);
+}
+
+.bg-c-yellow {
+  background: linear-gradient(45deg, #ffb64d, #ffcb80);
+}
+
+.bg-c-pink {
+  background: linear-gradient(45deg, #ff5370, #ff869a);
+}
+
+.card {
+  border-radius: 5px;
+  box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+  border: none;
+  margin-bottom: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card .card-block {
+  padding: 25px;
+}
+
+.order-card i {
+  font-size: 26px;
+}
+
+.f-left {
+  float: left;
+}
+
+.f-right {
+  float: right;
+}
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -10022,16 +10074,6 @@ h3 {
   overflow-x: hidden;
   overflow-y: auto;
   /* Scrollable contents if viewport is shorter than content. */
-}
-
-.product-item {
-  margin-top: 50px;
-}
-
-.product-item .pi-pic img {
-  min-width: 100%;
-  width: 50%;
-  height: 50%;
 }
 
 .category-item {

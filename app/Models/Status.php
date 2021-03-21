@@ -10,4 +10,22 @@ class Status extends Model
     use HasFactory;
 
     const STATUS_RECEIVED = 1;
+
+    const STATUS_PREPARING = 2;
+
+    const STATUS_READY = 3;
+
+    const DELIVERING = 4;
+
+    const DELIVERED = 5;
+
+    /**
+     * Get the Users of the specific Role
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

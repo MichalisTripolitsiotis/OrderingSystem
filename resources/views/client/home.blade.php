@@ -4,15 +4,15 @@
         <div class="container">
             <div class="row">
                 @include('partials._client-product-nav')
-                <div class="col-lg-9 order-lg-2">
+                <div class="col-12 col-lg-9 order-lg-2 d-flex">
                     <div class="product-list">
                         <div class="row">
                             @if ($products->isNotEmpty())
                                 @foreach ($products as $product)
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="product-item">
-                                            <input type="hidden" value="{{ $product->id }}">
-                                            <div class="pi-pic">
+                                    <div class="card">
+                                        <input type="hidden" value="{{ $product->id }}">
+                                        <div class="card-img-top">
+                                            <div class="card-img-top">
                                                 <img class="img img-category"
                                                     src="{{ $product->image ? Storage::url($product->image) : asset('images/default.jpg') }}"
                                                     alt="Category avatar">
@@ -20,12 +20,12 @@
                                                     <i class="icon_heart_alt"></i>
                                                 </div>
                                             </div>
-                                            <div class="pi-text">
-                                                <div class="product-name">{{ $product->name }}</div>
+                                            <div class="card-body">
+                                                <div class="card-title">{{ $product->name }}</div>
                                                 <a href="#">
                                                     <h5>{{ $product->dexcription }}</h5>
                                                 </a>
-                                                <div class="product-price">
+                                                <div class="card-text">
                                                     <span>{{ $product->price }} $</span>
                                                 </div>
                                                 <div class="product-button">

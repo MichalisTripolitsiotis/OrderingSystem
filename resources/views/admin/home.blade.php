@@ -1,12 +1,59 @@
 @extends('layouts.app')
 @section('content')
     @include('partials._admin-nav')
-    <div class="categories">
+    <div class="profile">
         <div class="container">
             <div class="box">
                 <div class="page-header col-s12 col-md-6">
                     <h3 class="md-spacer-down">My Profile</h3>
                 </div>
+            </div>
+            <div class="row">
+                @foreach ($orders as $order)
+                    <div class="col-md-4 col-xl-3">
+                        <div class="card bg-c-blue order-card">
+                            <div class="card-block">
+                                <h6 class="text-center m-b-20">Orders Received:</h6>
+                                <h2 class="text-center"><i
+                                        class="fa fa-cart-plus f-left"></i><span>{{ $order->received_status_count }}</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-xl-3">
+                        <div class="card bg-c-green order-card">
+                            <div class="card-block">
+                                <h6 class="text-center m-b-20">Orders Preparing:</h6>
+                                <h2 class="text-center"><i
+                                        class="fa fa-rocket f-left"></i><span>{{ $order->preparing_status_count }}</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-xl-3">
+                        <div class="card bg-c-yellow order-card">
+                            <div class="card-block">
+                                <h6 class="text-center m-b-20">Orders Ready to Deliver:</h6>
+                                <h2 class="text-center"><i
+                                        class="fa fa-refresh f-left"></i><span>{{ $order->ready_to_deliver_status_count }}</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-xl-3">
+                        <div class="card bg-c-pink order-card">
+                            <div class="card-block">
+                                <h6 class="text-center m-b-20">Orders Delivering:</h6>
+                                <h2 class="text-center"><i
+                                        class="fa fa-credit-card f-left"></i><span>{{ $order->delivering_status_count }}</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
