@@ -17,7 +17,6 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('image')->nullable();
-            $table->boolean('isAvailable')->default(true);
             $table->timestamps();
         });
     }

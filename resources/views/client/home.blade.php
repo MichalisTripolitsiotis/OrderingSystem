@@ -133,204 +133,40 @@
                 <div class="col-lg-9 order-lg-2">
                     <div class="product-list">
                         <div class="row">
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="{{ asset('images/romea-pizza.png') }}" class="pizza-img" alt="pizza">
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
+                            @if ($products->isNotEmpty())
+                                @foreach ($products as $product)
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="product-item">
+                                            <input type="hidden" value="{{ $product->id }}">
+                                            <div class="pi-pic">
+                                                <img class="img img-category"
+                                                    src="{{ $product->image ? Storage::url($product->image) : asset('images/default.jpg') }}"
+                                                    alt="Category avatar">
+                                                <div class="icon">
+                                                    <i class="icon_heart_alt"></i>
+                                                </div>
+                                            </div>
+                                            <div class="pi-text">
+                                                <div class="product-name">{{ $product->name }}</div>
+                                                <a href="#">
+                                                    <h5>{{ $product->dexcription }}</h5>
+                                                </a>
+                                                <div class="product-price">
+                                                    <span>{{ $product->price }} $</span>
+                                                </div>
+                                                <div class="product-button">
+                                                    <a href="{{ route('cart.store', $product->id) }}"
+                                                        class="add-to-cart-btn">
+                                                        ADD TO CART</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="pi-text">
-                                        <div class="product-name">Towel</div>
-                                        <a href="#">
-                                            <h5>Pure Pineapple</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            <span>$35.00</span>
-                                        </div>
-                                        <div class="product-button">
-                                            <a href="#" class="add-to-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="{{ asset('images/romea-pizza.png') }}" class="pizza-img" alt="pizza">
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Coat</div>
-                                        <a href="#">
-                                            <h5>Guangzhou sweater</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            <span>$35.00</span>
-                                        </div>
-                                        <div class="product-button">
-                                            <a href="#" class="add-to-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="{{ asset('images/romea-pizza.png') }}" class="pizza-img" alt="pizza">
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Shoes</div>
-                                        <a href="#">
-                                            <h5>Guangzhou sweater</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            <span>$35.00</span>
-                                        </div>
-                                        <div class="product-button">
-                                            <a href="#" class="add-to-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="{{ asset('images/romea-pizza.png') }}" class="pizza-img" alt="pizza">
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Coat</div>
-                                        <a href="#">
-                                            <h5>Microfiber Wool Scarf</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            <span>$35.00</span>
-                                        </div>
-                                        <div class="product-button">
-                                            <a href="#" class="add-to-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="{{ asset('images/romea-pizza.png') }}" class="pizza-img" alt="pizza">
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Shoes</div>
-                                        <a href="#">
-                                            <h5>Men's Painted Hat</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            <span>$35.00</span>
-                                        </div>
-                                        <div class="product-button">
-                                            <a href="#" class="add-to-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="{{ asset('images/romea-pizza.png') }}" class="pizza-img" alt="pizza">
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Shoes</div>
-                                        <a href="#">
-                                            <h5>Converse Shoes</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            <span>$35.00</span>
-                                        </div>
-                                        <div class="product-button">
-                                            <a href="#" class="add-to-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="{{ asset('images/romea-pizza.png') }}" class="pizza-img" alt="pizza">
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Towel</div>
-                                        <a href="#">
-                                            <h5>Pure Pineapple</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            <span>$35.00</span>
-                                        </div>
-                                        <div class="product-button">
-                                            <a href="#" class="add-to-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="{{ asset('images/romea-pizza.png') }}" class="pizza-img" alt="pizza">
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Coat</div>
-                                        <a href="#">
-                                            <h5>2 Layer Windbreaker</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            <span>$35.00</span>
-                                        </div>
-                                        <div class="product-button">
-                                            <a href="#" class="add-to-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="{{ asset('images/romea-pizza.png') }}" class="pizza-img" alt="pizza">
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Shoes</div>
-                                        <a href="#">
-                                            <h5>Converse Shoes</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            <span>$35.00</span>
-                                        </div>
-                                        <div class="product-button">
-                                            <a href="#" class="add-to-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                @endforeach
+                            @else
+                                <p class="zero-result-message">No products found
+                                </p>
+                            @endif
                         </div>
                     </div>
                 </div>

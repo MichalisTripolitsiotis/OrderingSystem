@@ -21,7 +21,8 @@
                  </a>
              </li>
              <li class="nav-item">
-                 <a class="nav-link" href="#">
+                 <a href="{{ route('products.index') }}"
+                     class="nav-link {{ request()->is('admin/products') ? 'active' : '' }}">
                      <span data-feather="shopping-cart"></span>
                      Products
                  </a>

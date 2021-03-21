@@ -21,13 +21,14 @@ class CreateOrderProductTable extends Migration
                 ->on('orders')
                 ->onUpdate('cascade')
                 ->onDelete('restrict');
-            $table->timestamps();
             $table->unsignedBigInteger('product_id')->nullable();
             $table->foreign('product_id')
                 ->references('id')
                 ->on('products')
                 ->onUpdate('cascade')
                 ->onDelete('restrict');
+            $table->integer('quantity');
+            $table->timestamps();
         });
     }
 
