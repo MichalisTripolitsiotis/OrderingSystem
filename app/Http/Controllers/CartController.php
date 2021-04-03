@@ -20,35 +20,13 @@ class CartController extends Controller
             abort(404);
         }
         $cart = session()->get('cart');
-        // if cart is empty then this the first product
+
         if (!$cart) {
-            $cart = [
-                $id => [
-                    "id" => $product->id,
-                    "name" => $product->name,
-                    "quantity" => 1,
-                    "price" => $product->price,
-                    "photo" => $product->photo
-                ]
-            ];
-            session()->put('cart', $cart);
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
+            $this->addProductIfCartIsEmpty($id, $cart, $product);
+        } else {
+            $this->updateCart($id, $cart, $product);
         }
-        // if cart not empty then check if this product exist then increment quantity
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-            session()->put('cart', $cart);
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
-        }
-        // if item not exist in cart then add to cart with quantity = 1
-        $cart[$id] = [
-            "id" => $product->id,
-            "name" => $product->name,
-            "quantity" => 1,
-            "price" => $product->price,
-            "photo" => $product->photo
-        ];
-        session()->put('cart', $cart);
+
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
@@ -61,6 +39,37 @@ class CartController extends Controller
                 session()->put('cart', $cart);
             }
             session()->flash('success', 'Product removed successfully');
+        }
+    }
+
+    private function addProductIfCartIsEmpty($id, $cart, $product)
+    {
+        $cart = [
+            $id => [
+                "id" => $product->id,
+                "name" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "photo" => $product->photo
+            ]
+        ];
+        session()->put('cart', $cart);
+    }
+
+    private function updateCart($id, $cart, $product)
+    {
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+            session()->put('cart', $cart);
+        } else {
+            $cart[$id] = [
+                "id" => $product->id,
+                "name" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "photo" => $product->photo
+            ];
+            session()->put('cart', $cart);
         }
     }
 }
