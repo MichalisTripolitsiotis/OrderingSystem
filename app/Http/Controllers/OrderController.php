@@ -13,7 +13,6 @@ class OrderController extends Controller
 {
     public function store(Request $request)
     {
-        // dd($request->session()->get('cart'));
         DB::beginTransaction();
 
         try {
@@ -27,7 +26,7 @@ class OrderController extends Controller
                 'user_id'   =>  auth()->user()->id
             ]);
 
-            foreach ($request->session()->get('cart') as $item) {
+            foreach ($request->orders as $key => $item) {
                 OrderProduct::create([
                     'order_id' => $order->id,
                     'product_id' => $item['id'],
