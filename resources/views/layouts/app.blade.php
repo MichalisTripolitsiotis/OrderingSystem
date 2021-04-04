@@ -35,6 +35,7 @@
         </main>
     </div>
     <script src="{{ asset('js/remove-product.js') }}"></script>
+    <script src="{{ asset('js/calculate-products.js') }}"></script>
 </body>
 
 </html>

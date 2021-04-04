@@ -9,7 +9,7 @@
                         <div class="row">
                             @if ($products->isNotEmpty())
                                 @foreach ($products as $product)
-                                    <div class="card">
+                                    <div class="card mr-2">
                                         <input type="hidden" value="{{ $product->id }}">
                                         <div class="card-img-top">
                                             <div class="card-img-top">

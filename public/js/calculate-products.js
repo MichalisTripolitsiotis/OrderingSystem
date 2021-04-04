@@ -1,0 +1,2 @@
+$(document).ready((function(){update_subtotals(),$(document).on("change",".quantity",(function(){update_subtotals()}))})),window.update_subtotals=function(){var t=0;$(".product").each((function(){var n=$(this).find(".quantity").val()*$(this).find(".priceInput").val();t+=n,$(this).find(".subtotal").html("$"+n)})),$(".final-price").html("<strong> Total $"+t+"</strong>"),$(".total").val(t)};
+//# sourceMappingURL=calculate-products.js.map

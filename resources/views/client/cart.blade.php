@@ -1,37 +1,42 @@
 @extends('layouts.app')
 @section('title', 'Cart')
 @section('content')
-    <table id="cart" class="table table-hover table-condensed">
+    <table id="cart" class="table table-hover">
         <thead>
             <tr>
-                <th style="width:50%">Product</th>
-                <th style="width:10%">Price</th>
-                <th style="width:8%">Quantity</th>
-                <th style="width:22%" class="text-center">Subtotal</th>
-                <th style="width:10%"></th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th class="text-center">Subtotal</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-            <?php $total = 0; ?>
+            <?php $total = 0;?>
             @if (session('cart'))
                 @foreach (session('cart') as $id => $details)
                     <?php $total += $details['price'] * $details['quantity']; ?>
-                    <tr>
-                        <td data-th="Product">
+                    <tr class="product">
+                        <td>
                             <div class="row">
-                                <div class="col-sm-3 hidden-xs"><img src="{{ $details['photo'] }}" width="100"
+                                <div class="col-sm-3"><img src="{{ $details['photo'] }}" width="100"
                                         height="100" class="img-responsive" /></div>
                                 <div class="col-sm-9">
-                                    <h4 class="nomargin">{{ $details['name'] }}</h4>
+                                    <h4 class="m-0">{{ $details['name'] }}</h4>
                                 </div>
                             </div>
                         </td>
-                        <td data-th="Price">${{ $details['price'] }}</td>
-                        <td data-th="Quantity">
+                        <td>
+                           <h6 class="price"> ${{ $details['price'] }} </h6>
+                           <input type="number" hidden value="{{ $details['price'] }}" class="form-control priceInput" />
+                        </td>
+                        <td>
                             <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity" />
                         </td>
-                        <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
-                        <td class="actions" data-th="">
+                        <td class="text-center">
+                            <h6 class="subtotal">${{ $details['price'] * $details['quantity'] }}</h6>
+                        </td>
+                        <td class="actions">
                             <button class="btn btn-danger btn-sm remove-from-cart"
                                 data-id="{{ $id }}">Remove</button>
                         </td>
@@ -42,12 +47,10 @@
         <tfoot>
             <tr>
                 <td>
-                    <a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue
-                        Shopping</a>
+                    <a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a>
                 </td>
-                </td>
-                <td colspan="2" class="hidden-xs"></td>
-                <td class="hidden-xs text-center"><strong>Total ${{ $total }}</strong></td>
+                <td colspan="2" class=""></td>
+                <td class="text-center final-price"><strong>Total ${{ $total }}</strong></td>
             </tr>
         </tfoot>
     </table>
@@ -95,8 +98,7 @@
 
         <div class="form-group">
             <div class="col-12 col-md-6 col-lg-4">
-                <input type="hidden" id="total" name="total"
-                    class="form-control {{ $errors->first('total') ? ' is-invalid' : '' }}" value="{{ $total }}">
+                <input type="hidden" id="total" class="form-control total {{ $errors->first('total') ? ' is-invalid' : '' }}" value="{{ $total }}">
                 <div class="invalid-feedback">{{ $errors->first('total') }}</div>
             </div>
         </div>
