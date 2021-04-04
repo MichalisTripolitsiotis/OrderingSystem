@@ -27,7 +27,8 @@ class CartController extends Controller
             $this->updateCart($id, $cart, $product);
         }
 
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        // return redirect()->back()->with('success', 'Product added to cart successfully!');
+        return response()->json(['code' => 200, 'success' => 'Product added to cart successfully!']);
     }
 
     public function delete(Request $request)

@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/js/remove-product.js": "/js/remove-product.js",
     "/js/calculate-products.js": "/js/calculate-products.js",
+    "/js/add-to-cart.js": "/js/add-to-cart.js",
     "/css/app.css": "/css/app.css"
 }

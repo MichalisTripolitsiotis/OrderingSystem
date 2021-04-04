@@ -36,6 +36,7 @@
     </div>
     <script src="{{ asset('js/remove-product.js') }}"></script>
     <script src="{{ asset('js/calculate-products.js') }}"></script>
+    <script src="{{ asset('js/add-to-cart.js') }}"></script>
 </body>
 
 </html>

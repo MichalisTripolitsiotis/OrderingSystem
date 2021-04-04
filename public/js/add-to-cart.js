@@ -1,0 +1,2 @@
+$(".product-button").find("a").click((function(t){var s=parseInt($(".badge-danger").text());t.preventDefault(),$.ajax({url:$(this).attr("href"),success:function(t){$(".badge-danger").text(s+1),$("#messages").addClass("alert-success").show((function(){$(this).html(t.success)}))}})}));
+//# sourceMappingURL=add-to-cart.js.map
