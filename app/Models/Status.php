@@ -20,7 +20,7 @@ class Status extends Model
     const DELIVERED = 5;
 
     /**
-     * Get the Users of the specific Role
+     * Get the Orders of the specific Status
      *
      * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */

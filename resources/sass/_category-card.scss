@@ -1,0 +1,46 @@
+.wrapper {
+    width: 400px;
+    height: 500px;
+    border-radius: 60px;
+    background: #130d0d;
+    .container {
+        width: 400px;
+        height: 220px;
+        border-radius: 0px 50px 0px;
+        border: solid 1px #e22121;
+        background: #e22121;
+
+        .image {
+            img {
+                width: 218px;
+                height: 220px;
+            }
+        }
+    }
+    .rectangle {
+        width: 60px;
+        height: 59px;
+        background: #e22121;
+        margin-left: 340px;
+
+        .corner {
+            width: 60px;
+            height: 60px;
+            border: solid 1px #130d0d;
+            background: #130d0d;
+            border-radius: 0px 40px 0px 0px;
+        }
+    }
+    .details {
+        h1 {
+            width: 195px;
+            height: 66px;
+            color: #ffefef;
+            font-family: "Segoe UI";
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 64px;
+            text-align: center;
+        }
+    }
+}

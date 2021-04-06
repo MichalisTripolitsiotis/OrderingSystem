@@ -1,50 +1,35 @@
 @extends('layouts.app')
 @section('content')
-    <section class="product-shop spad">
-        <div class="container">
-            <div class="row">
-                @include('partials._client-product-nav')
-                <div class="col-12 col-lg-9 order-lg-2 d-flex">
-                    <div class="product-list">
-                        <div class="row">
-                            @if ($products->isNotEmpty())
-                                @foreach ($products as $product)
-                                    <div class="card mr-2">
-                                        <input type="hidden" value="{{ $product->id }}">
-                                        <div class="card-img-top">
-                                            <div class="card-img-top">
-                                                <img class="img img-category"
-                                                    src="{{ $product->image ? Storage::url($product->image) : asset('images/default.jpg') }}"
-                                                    alt="Category avatar">
-                                                <div class="icon">
-                                                    <i class="icon_heart_alt"></i>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="card-title">{{ $product->name }}</div>
-                                                <a href="#">
-                                                    <h5>{{ $product->dexcription }}</h5>
-                                                </a>
-                                                <div class="card-text">
-                                                    <span>{{ $product->price }} $</span>
-                                                </div>
-                                                <div class="product-button">
-                                                    <a href="{{ route('cart.store', $product->id) }}"
-                                                        class="add-to-cart-btn">
-                                                        ADD TO CART</a>
-                                                </div>
-                                            </div>
-                                        </div>
+    <div class="container">
+        <div class="row">
+            <div class="category-list">
+                <div class="row">
+                    @if ($categories->isNotEmpty())
+                        @foreach ($categories as $category)
+                        <div class="col-5">
+                            <div class="wrapper mr-2 mt-4">
+                                <div class="container">
+                                    <div class="image">
+                                        <img src="images/default.jpg">
                                     </div>
-                                @endforeach
-                            @else
-                                <p class="zero-result-message">No products found
-                                </p>
-                            @endif
+                                </div>
+                                <div class="rectangle">
+                                    <div class="corner"></div>
+                                </div>
+                                <div class="details">
+                                    <h1>{{$category->name}}</h1>
+                                    <button class="btn btn-danger"><a href="{{ route('client.show', $category->id) }}">Go to category</a></button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        @endforeach
+                    @else
+                        <p class="zero-result-message">No categories found
+                        </p>
+                    @endif
                 </div>
+                
             </div>
         </div>
-    </section>
+    </div>
 @endsection

@@ -20,11 +20,19 @@ class ClientController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function showCategories()
+    {
+        $categories = Category::all();
+        return view('client.home', [
+            'categories' => $categories
+        ]);
+    }
+
+    public function showProducts($id)
     {
         $categories = Category::all();
         $products = Category::find($id)->products;
-        return view('client.home', [
+        return view('client.products', [
             'products' => $products,
             'categories' => $categories
         ]);
