@@ -10,6 +10,9 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-6 col-sm-8">
+                    <div class="text-center">
+                    <a href="" class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalSubscriptionForm">Add Category</a>
+                    </div>
                     <div class="category-list">
                         <div class="row">
                             @if ($categories->isNotEmpty())
@@ -42,6 +45,7 @@
                         </div>
                     </div>
                 </div>
+                @include('admin/categories/_add-category-modal')
             </div>
         </div>
     </div>

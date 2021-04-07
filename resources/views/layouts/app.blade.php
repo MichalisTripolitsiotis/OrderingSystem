@@ -28,6 +28,7 @@
 
         <div class="container">
             @include('success-messages')
+            @include('error-messages')
         </div>
 
         <main class="py-4">
