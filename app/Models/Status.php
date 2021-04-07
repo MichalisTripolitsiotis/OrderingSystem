@@ -15,9 +15,9 @@ class Status extends Model
 
     const STATUS_READY = 3;
 
-    const DELIVERING = 4;
+    const STATUS_DELIVERING = 4;
 
-    const DELIVERED = 5;
+    const STATUS_DELIVERED = 5;
 
     /**
      * Get the Orders of the specific Status

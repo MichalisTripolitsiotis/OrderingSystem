@@ -41,4 +41,29 @@ class Order extends Model
     {
         return $this->belongsTo(Status::class);
     }
+
+    public function receivedOrder()
+    {
+        return $this->status_id == Status::STATUS_RECEIVED;
+    }
+
+    public function preparingOrder()
+    {
+        return $this->status_id == Status::STATUS_PREPARING;
+    }
+
+    public function readyOrder()
+    {
+        return $this->status_id == Status::STATUS_READY;
+    }
+
+    public function deliveringOrder()
+    {
+        return $this->status_id == Status::STATUS_DELIVERING;
+    }
+
+    public function deliveredOrder()
+    {
+        return $this->status_id == Status::STATUS_DELIVERED;
+    }
 }
