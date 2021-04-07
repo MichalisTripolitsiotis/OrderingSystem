@@ -11,10 +11,10 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $receivedOrders = Order::where('status_id', Status::STATUS_RECEIVED);
-        $preparingOrders = Order::where('status_id', Status::STATUS_PREPARING);
-        $readyOrders = Order::where('status_id', Status::STATUS_READY);
-        $deliveringOrders = Order::where('status_id', Status::STATUS_DELIVERING);
+        $receivedOrders   = Order::where('status_id', Status::STATUS_RECEIVED)->count();
+        $preparingOrders  = Order::where('status_id', Status::STATUS_PREPARING)->count();
+        $readyOrders      = Order::where('status_id', Status::STATUS_READY)->count();
+        $deliveringOrders = Order::where('status_id', Status::STATUS_DELIVERING)->count();
 
         return view('admin.home', [
             'receivedOrders' => $receivedOrders,
