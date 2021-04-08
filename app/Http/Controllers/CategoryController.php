@@ -36,7 +36,6 @@ class CategoryController extends Controller
 
         // Return user back and show a flash message
         return redirect()->back()->with(['status' => 'Profile updated successfully.']);
-        Category::create([]);
     }
 
     private function uploadOne(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null)
