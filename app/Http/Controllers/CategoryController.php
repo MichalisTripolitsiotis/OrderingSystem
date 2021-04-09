@@ -23,6 +23,7 @@ class CategoryController extends Controller
     {
         $category = new Category();
         $category->name = $request->input('category_name');
+
         if ($request->has('category_image')) {
             $image = $request->file('category_image');
             $name = Str::slug($request->input('name')) . '_' . time();
@@ -31,10 +32,17 @@ class CategoryController extends Controller
             $this->uploadOne($image, $folder, 'public', $name);
             $category->image = $filePath;
         }
-        // Persist user record to database
+
         $category->save();
 
         // Return user back and show a flash message
+        return redirect()->back()->with(['status' => 'Profile updated successfully.']);
+    }
+
+    public function destroy(Category $category)
+    {
+        $category->products()->delete();
+        $category->delete();
         return redirect()->back()->with(['status' => 'Profile updated successfully.']);
     }
 

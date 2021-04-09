@@ -35,6 +35,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::group(['prefix' => 'categories', 'namespace' => 'Categories'], function () {
         Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
         Route::post('/', [CategoryController::class, 'store'])->name('categories.store');
+        Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
     });
 
     Route::group(['prefix' => 'products', 'namespace' => 'Products'], function () {

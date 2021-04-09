@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-            <button class="btn btn-success">Send</button>
+            <button class="btn btn-success">Create</button>
         </div>
         </div>
     </div>

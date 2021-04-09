@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
                 ->references('id')
                 ->on('categories')
                 ->onUpdate('cascade')
-                ->onDelete('restrict');
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

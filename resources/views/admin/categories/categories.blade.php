@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-6 col-sm-8">
                     <div class="text-center">
-                    <a href="" class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalSubscriptionForm">Add Category</a>
+                    <a class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalSubscriptionForm">Add Category</a>
                     </div>
                     <div class="category-list">
                         <div class="row">
@@ -19,6 +19,7 @@
                                 @foreach ($categories as $category)
                                     <div class="col-lg-4 col-sm-6">
                                         <div class="category-item">
+                                            <h2>{{ $category->name }}</h2>
                                             <div class="pi-pic">
                                                 <img class="img img-category"
                                                     src="{{ $category->image ? Storage::url($category->image) : asset('images/default.jpg') }}"
@@ -27,12 +28,16 @@
                                                     <i class="icon_heart_alt"></i>
                                                 </div>
                                             </div>
-                                            <div class="pi-text">
-                                                <div class="catagory-name">{{ $category->name }}</div>
-                                                <div class="catagory-name">
-                                                    {{ $category->isAvailable ? 'Available' : 'Not Available' }}</div>
+                                            <div class="pi-text mt-2">
                                                 <div class="category-button">
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <div class="btn-group" role="group" aria-label="First group">
+                                                        <form action="{{ route('categories.destroy', $category ) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                        </form>
+                                                            <button type="submit" class="btn btn-success ml-2">Edit</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
