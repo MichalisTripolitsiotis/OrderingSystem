@@ -49,7 +49,7 @@ class CategoryController extends Controller
         $category->save();
 
         // Return user back and show a flash message
-        return redirect()->back()->with(['status' => 'Category added successfully.']);
+        return redirect()->back()->with(['success' => 'Category added successfully.']);
     }
 
     public function update(Category $category, Request $request)
@@ -78,7 +78,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->back()->with(['status' => 'Category updated successfully.']);
+        return redirect()->back()->with(['success' => 'Category updated successfully.']);
     }
 
     /**
@@ -90,9 +90,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->product()->delete();
-        $category->product()->orders()->delete();
         $category->delete();
-        return redirect()->back()->with(['status' => 'Category deleted successfully.']);
+        return redirect()->back()->with(['success' => 'Category deleted successfully.']);
     }
 
 

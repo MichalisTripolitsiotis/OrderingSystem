@@ -46,15 +46,15 @@
                                         </div>
                                     </div>
                                 @endforeach
+                                @include('admin/categories/_edit-category-modal')
                             @else
                                 <p class="zero-result-message">No categories found
                                 </p>
                             @endif
+                            @include('admin/categories/_add-category-modal')
                         </div>
                     </div>
                 </div>
-                @include('admin/categories/_add-category-modal')
-                @include('admin/categories/_edit-category-modal')
             </div>
         </div>
     </div>
