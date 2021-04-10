@@ -25,13 +25,13 @@ class CreateOrdersTable extends Migration
                 ->references('id')
                 ->on('statuses')
                 ->onUpdate('cascade')
-                ->onDelete('restrict');
+                ->onDelete('cascade');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onUpdate('cascade')
-                ->onDelete('restrict');
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

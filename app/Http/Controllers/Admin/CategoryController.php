@@ -7,6 +7,7 @@ use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -48,7 +49,36 @@ class CategoryController extends Controller
         $category->save();
 
         // Return user back and show a flash message
-        return redirect()->back()->with(['status' => 'Profile updated successfully.']);
+        return redirect()->back()->with(['status' => 'Category added successfully.']);
+    }
+
+    public function update(Category $category, Request $request)
+    {
+
+        $this->validate($request, [
+            'category_edit_name'  => 'required|string|max:255',
+            'category_edit_image' => 'required'
+        ]);
+        $category->name = $request->input('category_edit_name');
+        if ($category->image) {
+
+            if ($category->image) {
+                Storage::delete($category->image);
+            }
+        }
+
+        if ($request->has('category_edit_image')) {
+            $image = $request->file('category_edit_image');
+            $name = Str::slug($request->input('name')) . '_' . time();
+            $folder = '/uploads/images/';
+            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
+            $this->uploadOne($image, $folder, 'public', $name);
+            $category->image = $filePath;
+        }
+
+        $category->save();
+
+        return redirect()->back()->with(['status' => 'Category updated successfully.']);
     }
 
     /**
@@ -59,9 +89,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->products()->delete();
+        $category->product()->delete();
+        $category->product()->orders()->delete();
         $category->delete();
-        return redirect()->back()->with(['status' => 'Profile updated successfully.']);
+        return redirect()->back()->with(['status' => 'Category deleted successfully.']);
     }
 
 

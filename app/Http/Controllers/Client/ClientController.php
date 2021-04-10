@@ -46,7 +46,8 @@ class ClientController extends Controller
     public function showProducts($id)
     {
         $categories = Category::all();
-        $products = Category::find($id)->products;
+        $products = Category::find($id)->product->get();
+
         return view('client.products', [
             'products' => $products,
             'categories' => $categories

@@ -15,5 +15,6 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/remove-product.js', 'public/js')
     .js('resources/js/calculate-products.js', 'public/js')
     .js('resources/js/add-to-cart.js', 'public/js')
+    .js('resources/js/edit-category.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sourceMaps();

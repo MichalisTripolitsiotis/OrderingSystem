@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal fade" id="add-category-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <form action="{{ route('categories.store') }}" method="POST" role="form" enctype="multipart/form-data">
     @csrf
@@ -13,7 +13,7 @@
         <div class="modal-body">
             <div class="md-form mb-2">
             <input type="text" id="category_name" name="category_name" class="form-control">
-            <label data-error="wrong" data-success="right" for="category_name">Your name</label>
+            <label data-error="wrong" data-success="right" for="category_name">Category name</label>
             </div>
             <div class="md-form mb-5">
             <input id="category_image" type="file" class="form-control" name="category_image">

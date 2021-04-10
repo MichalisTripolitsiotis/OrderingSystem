@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-6 col-sm-8">
                     <div class="text-center">
-                    <a class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalSubscriptionForm">Add Category</a>
+                    <a class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#add-category-modal">Add Category</a>
                     </div>
                     <div class="category-list">
                         <div class="row">
@@ -31,11 +31,14 @@
                                             <div class="pi-text mt-2">
                                                 <div class="category-button">
                                                     <div class="btn-group" role="group" aria-label="First group">
-                                                        <button type="submit" class="btn btn-success mr-2">Edit</button>
+                                                        <button type="submit" class="btn btn-success mr-2" data-toggle="modal"  
+                                                        data-target-id="{{ $category->id }}" 
+                                                        data-name="{{ $category->name }}"
+                                                        data-target="#edit-category-modal"><i class="fa fa-edit"></i> Edit</button>
                                                         <form action="{{ route('categories.destroy', $category ) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -51,6 +54,7 @@
                     </div>
                 </div>
                 @include('admin/categories/_add-category-modal')
+                @include('admin/categories/_edit-category-modal')
             </div>
         </div>
     </div>

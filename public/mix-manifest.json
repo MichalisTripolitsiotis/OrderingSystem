@@ -3,5 +3,6 @@
     "/js/remove-product.js": "/js/remove-product.js",
     "/js/calculate-products.js": "/js/calculate-products.js",
     "/js/add-to-cart.js": "/js/add-to-cart.js",
+    "/js/edit-category.js": "/js/edit-category.js",
     "/css/app.css": "/css/app.css"
 }

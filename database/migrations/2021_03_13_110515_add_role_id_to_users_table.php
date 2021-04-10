@@ -19,7 +19,7 @@ class AddRoleIdToUsersTable extends Migration
                 ->references('id')
                 ->on('roles')
                 ->onUpdate('cascade')
-                ->onDelete('restrict');
+                ->onDelete('cascade');
         });
     }
 

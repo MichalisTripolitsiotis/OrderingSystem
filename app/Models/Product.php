@@ -12,10 +12,20 @@ class Product extends Model
     /**
      * Get the Category of the specific Product
      *
-     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
     public function categories()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Get the Order of the specific Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
     }
 }
