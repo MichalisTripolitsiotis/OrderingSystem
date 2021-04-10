@@ -7,6 +7,7 @@ use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -60,10 +61,10 @@ class CategoryController extends Controller
             'category_edit_image' => 'required'
         ]);
         $category->name = $request->input('category_edit_name');
-        if ($category->image) {
 
-            if ($category->image) {
-                Storage::delete($category->image);
+        if ($category->image) {
+            if (File::exists(public_path("\storage") . $category->image)) {
+                File::delete(public_path("\storage") . $category->image);
             }
         }
 
