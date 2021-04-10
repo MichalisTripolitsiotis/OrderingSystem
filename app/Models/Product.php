@@ -9,6 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
+    /**
+     * Get the Category of the specific Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
     public function categories()
     {
         return $this->belongsTo(Category::class);

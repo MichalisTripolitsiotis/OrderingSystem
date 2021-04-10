@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -10,6 +11,11 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $categories = Category::all();
@@ -19,6 +25,12 @@ class CategoryController extends Controller
         ]);
     }
 
+    /**
+     * Store a new category.
+     *
+     * @param  CategoryRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(CategoryRequest $request)
     {
         $category = new Category();
@@ -39,6 +51,12 @@ class CategoryController extends Controller
         return redirect()->back()->with(['status' => 'Profile updated successfully.']);
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Category $category
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy(Category $category)
     {
         $category->products()->delete();
@@ -46,6 +64,17 @@ class CategoryController extends Controller
         return redirect()->back()->with(['status' => 'Profile updated successfully.']);
     }
 
+
+    /**
+     * Private method to store file into the public folder
+     * 
+     * @param UploadedFile $uploadedFile
+     * @param $folder
+     * @param $disk
+     * @param $filename
+     * 
+     * @return $file
+     */
     private function uploadOne(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null)
     {
         $name = !is_null($filename) ? $filename : Str::random(25);

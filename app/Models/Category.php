@@ -9,6 +9,11 @@ class Category extends Model
 {
     use HasFactory;
 
+    /**
+     *  Return the products of the order
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
     public function products()
     {
         return $this->hasMany(Product::class);

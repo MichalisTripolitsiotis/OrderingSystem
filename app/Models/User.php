@@ -44,7 +44,7 @@ class User extends Authenticatable
     /**  
      * Return the user is admin
      *
-     *  @return boolean
+     *  @return bool
      */
     public function isAdmin()
     {
@@ -54,7 +54,7 @@ class User extends Authenticatable
     /**
      * Return the user is employee
      *
-     * @return boolean
+     * @return bool
      */
     public function isEmployee()
     {
@@ -64,7 +64,7 @@ class User extends Authenticatable
     /**
      * Return the user is client
      *
-     * @return boolean
+     * @return bool
      */
     public function isClient()
     {
@@ -81,6 +81,12 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
+
+    /**
+     * Return the Orders of the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
     public function orders()
     {
         return $this->hasMany(Order::class);

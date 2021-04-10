@@ -1,13 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
+
 use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\Client\CartController;
+use App\Http\Controllers\Client\OrderController;
+
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -29,6 +32,9 @@ Auth::routes();
 
 Route::get('/home', [ProfileController::class, 'index'])->name('profile.index');
 
+/**
+ * Admin routes
+ */
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 
@@ -43,7 +49,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     });
 });
 
-
+/**
+ * Client routes
+ */
 Route::group(['prefix' => 'client', 'namespace' => 'Client', 'middleware' => ['auth']], function () {
     Route::get('/', [ClientController::class, 'index'])->name('client.index');
     Route::get('category/{id}', [ClientController::class, 'showProducts'])->name('client.show');

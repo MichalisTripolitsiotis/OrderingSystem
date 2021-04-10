@@ -9,7 +9,11 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $categories = Category::all();
@@ -20,6 +24,11 @@ class ClientController extends Controller
         ]);
     }
 
+    /**
+     * Display a listing of the Categories.
+     *
+     * @return \Illuminate\View\View
+     */
     public function showCategories()
     {
         $categories = Category::all();
@@ -28,6 +37,12 @@ class ClientController extends Controller
         ]);
     }
 
+    /**
+     * Display a product.
+     *
+     * @param $id
+     * @return \Illuminate\View\View
+     */
     public function showProducts($id)
     {
         $categories = Category::all();

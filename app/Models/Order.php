@@ -17,9 +17,9 @@ class Order extends Model
     protected $guarded = [];
 
     /**
-     *  Users
+     *  Return the User that this order belongs to
      * 
-     * @return $user;
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
      */
     public function user()
     {
@@ -27,41 +27,70 @@ class Order extends Model
     }
 
     /**
-     *  Products
+     *  Return all the Products of the Order
      * 
-     * @return $products;
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
      */
     public function products()
     {
         return $this->belongsToMany(Product::class)->withPivot('quantity');
     }
 
-
+    /**
+     *  Return the Status that of the Order
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
     public function status()
     {
         return $this->belongsTo(Status::class);
     }
 
+    /**
+     *  Return the received orders
+     * 
+     * @return bool
+     */
     public function receivedOrder()
     {
         return $this->status_id == Status::STATUS_RECEIVED;
     }
 
+    /**
+     *  Return the preparing orders
+     * 
+     * @return bool
+     */
     public function preparingOrder()
     {
         return $this->status_id == Status::STATUS_PREPARING;
     }
 
+    /**
+     *  Return the ready orders
+     * 
+     * @return bool
+     */
     public function readyOrder()
     {
         return $this->status_id == Status::STATUS_READY;
     }
 
+    /**
+     *  Return the delivering orders
+     * 
+     * @return bool
+     */
     public function deliveringOrder()
     {
         return $this->status_id == Status::STATUS_DELIVERING;
     }
 
+    /**
+     *  Return the delivered orders
+     * 
+     * @return bool
+     */
     public function deliveredOrder()
     {
         return $this->status_id == Status::STATUS_DELIVERED;

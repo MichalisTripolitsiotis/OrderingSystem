@@ -31,12 +31,12 @@
                                             <div class="pi-text mt-2">
                                                 <div class="category-button">
                                                     <div class="btn-group" role="group" aria-label="First group">
+                                                        <button type="submit" class="btn btn-success mr-2">Edit</button>
                                                         <form action="{{ route('categories.destroy', $category ) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">Delete</button>
                                                         </form>
-                                                            <button type="submit" class="btn btn-success ml-2">Edit</button>
                                                     </div>
                                                 </div>
                                             </div>

@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $receivedOrders   = Order::where('status_id', Status::STATUS_RECEIVED)->count();
