@@ -69,18 +69,18 @@ class CategoryController extends Controller
     {
 
         $this->validate($request, [
-            'category_edit_name'  => 'required|string|max:255',
-            'category_edit_image' => 'required'
+            'category_edit_name'  => 'required|string|max:255'
         ]);
         $category->name = $request->input('category_edit_name');
 
-        if ($category->image) {
-            if (File::exists(public_path("\storage") . $category->image)) {
-                File::delete(public_path("\storage") . $category->image);
-            }
-        }
+
 
         if ($request->has('category_edit_image')) {
+            if ($category->image) {
+                if (File::exists(public_path("\storage") . $category->image)) {
+                    File::delete(public_path("\storage") . $category->image);
+                }
+            }
             $image = $request->file('category_edit_image');
             $name = Str::slug($request->input('name')) . '_' . time();
             $folder = '/uploads/images/';
