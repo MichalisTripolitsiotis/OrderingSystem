@@ -27,7 +27,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a new category.
+     * Store a new product.
      *
      * @param  ProductRequest $request
      * @return \Illuminate\Http\RedirectResponse
@@ -39,7 +39,7 @@ class ProductController extends Controller
         $product->price = $request->input('product_price');
         $product->description = $request->input('product_description');
 
-        if ($request->has('category_image')) {
+        if ($request->has('product_image')) {
             $image = $request->file('product_image');
             $name = Str::slug($request->input('name')) . '_' . time();
             $folder = '/uploads/foods/';
