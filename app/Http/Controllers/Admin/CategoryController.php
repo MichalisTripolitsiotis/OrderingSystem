@@ -73,8 +73,6 @@ class CategoryController extends Controller
         ]);
         $category->name = $request->input('category_edit_name');
 
-
-
         if ($request->has('category_edit_image')) {
             if ($category->image) {
                 if (File::exists(public_path("\storage") . $category->image)) {
@@ -102,6 +100,11 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        if ($category->image) {
+            if (File::exists(public_path("\storage") . $category->image)) {
+                File::delete(public_path("\storage") . $category->image);
+            }
+        }
         $category->product()->delete();
         $category->delete();
         return redirect()->back()->with(['success' => 'Category deleted successfully.']);

@@ -48,6 +48,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::group(['prefix' => 'products', 'namespace' => 'Products'], function () {
         Route::get('/', [ProductController::class, 'index'])->name('products.index');
         Route::post('/', [ProductController::class, 'store'])->name('products.store');
+        Route::put('/{product}', [ProductController::class, 'update'])->name('products.update');
+        Route::delete('/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
     });
 });
 

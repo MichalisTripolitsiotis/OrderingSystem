@@ -24,8 +24,13 @@
                                                 <img class="img img-product"
                                                     src="{{ $product->image ? Storage::url($product->image) : asset('images/default.jpg') }}"
                                                     alt="product avatar">
-                                                <div class="icon">
-                                                    <i class="icon_heart_alt"></i>
+                                                <div class="ingredients">
+                                                    @foreach ($product->tags as $tag)
+                                                        <span class="badge badge-info">{{$tag->name}}</span>
+                                                    @endforeach
+                                                </div>
+                                                 <div class="ingredients">
+                                                    <p>{{$product->description}}</p>
                                                 </div>
                                             </div>
                                             <div class="pi-text mt-2">
@@ -35,11 +40,11 @@
                                                         data-target-id="{{ $product->id }}" 
                                                         data-name="{{ $product->name }}"
                                                         data-target="#edit-product-modal"><i class="fa fa-edit"></i> Edit</button>
-                                                        {{-- <form action="{{ route('products.destroy', $product ) }}" method="POST">
+                                                        <form action="{{ route('products.destroy', $product ) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
-                                                        </form> --}}
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>

@@ -10,6 +10,7 @@ use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -20,7 +21,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::orderBy('category_id')->get();
         $categories = Category::all();
         return view('admin.products', [
             'products' => $products,
@@ -67,6 +68,24 @@ class ProductController extends Controller
 
             throw new Exception($exception->getMessage());
         }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Category $category
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Product $product)
+    {
+        if ($product->image) {
+            if (File::exists(public_path("\storage") . $product->image)) {
+                File::delete(public_path("\storage") . $product->image);
+            }
+        }
+        $product->untag();
+        $product->delete();
+        return redirect()->back()->with(['success' => 'Product deleted successfully.']);
     }
 
     /**
