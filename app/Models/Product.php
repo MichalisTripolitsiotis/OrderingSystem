@@ -11,6 +11,13 @@ class Product extends Model
     use HasFactory, Taggable;
 
     /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      * Get the Category of the specific Product
      *
      * @return \Illuminate\Database\Eloquent\Relations\hasOne

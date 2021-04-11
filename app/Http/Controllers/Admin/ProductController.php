@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
+use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -34,27 +36,37 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $product = new Product();
-        $product->name = $request->input('product_name');
-        $product->price = $request->input('product_price');
-        $product->description = $request->input('product_description');
+        DB::beginTransaction();
+        try {
+            if ($request->has('product_image')) {
+                $image = $request->file('product_image');
+                $name = Str::slug($request->input('name')) . '_' . time();
+                $folder = '/uploads/foods/';
+                $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
+                $this->uploadOne($image, $folder, 'public', $name);
+            }
 
-        if ($request->has('product_image')) {
-            $image = $request->file('product_image');
-            $name = Str::slug($request->input('name')) . '_' . time();
-            $folder = '/uploads/foods/';
-            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
-            $this->uploadOne($image, $folder, 'public', $name);
-            $product->image = $filePath;
+            $product = new Product([
+                'name' => $request->product_name,
+                'price' => $request->product_price,
+                'description' => $request->product_description,
+                'image' => $filePath
+            ]);
+
+            $product->category()->associate($request->product_category);
+            $product->save();
+
+            $tags = explode(",", $request->tags);
+            $product->tag($tags);
+
+            DB::commit();
+
+            return redirect()->back()->with(['success' => 'Product added successfully.']);
+        } catch (Exception $exception) {
+            DB::rollback();
+
+            throw new Exception($exception->getMessage());
         }
-
-        $product->category()->associate($request->product_category);
-        $tags = explode(",", $request->tags);
-        $product->save();
-        $product->tag($tags);
-
-        // Return user back and show a flash message
-        return redirect()->back()->with(['success' => 'Product added successfully.']);
     }
 
     /**

@@ -10,6 +10,13 @@ class Category extends Model
     use HasFactory;
 
     /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      *  Return the products of the order
      * 
      * @return \Illuminate\Database\Eloquent\Relations\belongsTo

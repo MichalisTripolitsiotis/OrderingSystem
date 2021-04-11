@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -35,22 +37,32 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        $category = new Category();
-        $category->name = $request->input('category_name');
+        DB::beginTransaction();
+        try {
 
-        if ($request->has('category_image')) {
-            $image = $request->file('category_image');
-            $name = Str::slug($request->input('name')) . '_' . time();
-            $folder = '/uploads/images/';
-            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
-            $this->uploadOne($image, $folder, 'public', $name);
-            $category->image = $filePath;
+            if ($request->has('category_image')) {
+                $image = $request->file('category_image');
+                $name = Str::slug($request->input('name')) . '_' . time();
+                $folder = '/uploads/images/';
+                $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
+                $this->uploadOne($image, $folder, 'public', $name);
+            }
+
+            $category = new Category([
+                'name' => $request->category_name,
+                'image' => $filePath
+            ]);
+
+            $category->save();
+            DB::commit();
+
+            // Return user back and show a flash message
+            return redirect()->back()->with(['success' => 'Category added successfully.']);
+        } catch (Exception $exception) {
+            DB::rollback();
+
+            throw new Exception($exception->getMessage());
         }
-
-        $category->save();
-
-        // Return user back and show a flash message
-        return redirect()->back()->with(['success' => 'Category added successfully.']);
     }
 
     public function update(Category $category, Request $request)
