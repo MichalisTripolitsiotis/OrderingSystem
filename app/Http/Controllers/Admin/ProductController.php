@@ -21,8 +21,16 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('category_id')->get();
-        $categories = Category::all();
+        if (request()->category) {
+            $products = Product::with('category')->whereHas('category', function ($query) {
+                $query->where('name', request()->category);
+            })->get();
+            $categories = Category::all();
+        } else {
+            $products = Product::orderBy('category_id')->get();
+            $categories = Category::all();
+        }
+
         return view('admin.products', [
             'products' => $products,
             'categories' => $categories

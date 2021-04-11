@@ -8,6 +8,20 @@
                     <h3 class="md-spacer-down">Products</h3>
                 </div>
             </div>
+             <div class="categories-bar navbar navbar-expand-md navbar-primary bg-light">
+                        <a class="navbar-brand">Select by category:</a>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="{{ route('products.index')}}" class="nav-link">All</a>
+                            </li>
+                            @foreach ($categories as $category)
+                            <li class="nav-item">
+                                <a href="{{ route('products.index', ['category' => $category->name]) }}" class="nav-link">{{ $category->name }}</a>
+                            </li>
+                        @endforeach
+                        </ul>
+                    </div>
+                    <br>
             <div class="row">
                 <div class="col-lg-12 col-md-6 col-sm-8">
                     <div class="text-center">
