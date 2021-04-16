@@ -11,5 +11,10 @@ class OrderProduct extends Model
 
     protected $table = 'order_product';
 
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
     protected $guarded = [];
 }

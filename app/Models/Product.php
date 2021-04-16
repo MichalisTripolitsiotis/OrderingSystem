@@ -20,7 +20,7 @@ class Product extends Model
     /**
      * Get the Category of the specific Product
      *
-     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
      */
     public function category()
     {
@@ -30,7 +30,7 @@ class Product extends Model
     /**
      * Get the Order of the specific Product
      *
-     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
      */
     public function orders()
     {

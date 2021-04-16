@@ -65,6 +65,13 @@ class CategoryController extends Controller
         }
     }
 
+    /**
+     * Update a category.
+     *
+     * @param  Category $category
+     * @param  Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Category $category, Request $request)
     {
 

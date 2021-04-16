@@ -19,7 +19,7 @@ class Category extends Model
     /**
      *  Return the products of the order
      * 
-     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
     public function product()
     {
