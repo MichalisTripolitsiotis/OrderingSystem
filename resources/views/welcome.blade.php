@@ -4,7 +4,7 @@
   <section id="hero">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
       <h1>Orderator</h1>
-      <h2>Order your pizza and track them in real time</h2>
+      <h2>Order your pizzas and track them in real time</h2>
       <a href="#about" class="btn-get-started">Get Started</a>
     </div>
   </section>
