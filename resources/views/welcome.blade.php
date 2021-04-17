@@ -32,7 +32,7 @@
     <section id="services">
       <div class="container-fluid">
         <div class="section-header">
-          <h3 class="section-title">Services</h3>
+          <h3 class="section-title">How it works</h3>
         </div>
         <div class="row">
           <div class="col-lg-4 col-md-6">
@@ -40,6 +40,7 @@
                <div class="service-content">
                 <div class="service-icon">1</div>
                 <h4 class="title pt-3">Make an order</h4>
+                <div class="image-box"><img src="images/dev/bag.jpg"></div>
               </div>
             </div>
           </div>
@@ -48,6 +49,7 @@
                <div class="service-content">
                 <div class="service-icon">2</div>
                 <h4 class="title pt-3">Track your order</h4>
+                <div class="image-box"><img src="images/dev/radar.jpg"></div>
               </div>
             </div>
           </div>
@@ -55,7 +57,8 @@
             <div class="box serviceBox">
                <div class="service-content">
                 <div class="service-icon">3</div>
-                <h4 class="title pt-3">Give feedback</h4>
+                <h4 class="title pt-3">Delivered</h4>
+                <div class="image-box"><img src="images/dev/check.jpg"></div>
               </div>
             </div>
           </div>
