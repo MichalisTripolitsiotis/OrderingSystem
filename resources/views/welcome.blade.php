@@ -1,6 +1,26 @@
 @extends('layouts.guest')
-{{-- @extends('layouts.app') --}}
 @section('content')
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top ordering-nav">
+    <div class="container">
+    <a class="navbar-brand" href="#">ORDERATOR</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#hero">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Services</a>
+        </li>
+        <a href="{{ route('login') }}"><button class="btn btn-login ml-md-5 mr-2" type="submit">Login</button></a>
+        <a href="{{ route('register') }}"><button class="btn btn-signup" type="submit">Sign up</button></a>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <section id="hero">
     <div class="hero-container">
       <h1>Orderator</h1>

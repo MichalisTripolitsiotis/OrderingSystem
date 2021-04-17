@@ -18,5 +18,6 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/navbar-scroll.js') }}"></script>
 </body>
 </html>

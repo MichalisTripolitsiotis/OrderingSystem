@@ -1,3 +1,54 @@
+/* Navbar --------------------------------*/
+
+.navbar {
+    top: 20px;
+    .navbar-brand {
+        font-size: 20px;
+        color: #fff;
+        font-weight: 700;
+        &:hover {
+            color: #e86267 !important;
+        }
+    }
+    .nav-link {
+        font-size: 18px;
+        padding-left: 20px;
+        padding-right: 20px;
+        letter-spacing: 1px;
+        color: #fff !important;
+        font-weight: 500;
+
+        &:hover {
+            background: #e86267;
+            border-radius: 20px;
+        }
+    }
+    .btn-login {
+        color: #fff;
+        font-size: 20px;
+        &:hover {
+            color: #e86267;
+        }
+    }
+    .btn-signup {
+        padding: 6px 15px;
+        font-size: 18px;
+        color: #fff;
+        background: #e86267;
+        border-radius: 20px;
+    }
+}
+
+.navbar.scrolled {
+    top: 0;
+    background-color: #d15357 !important;
+    color: black;
+    transition: background-color 200ms linear;
+}
+
+.navbar.scrolled .nav-link {
+    color: #555;
+}
 /* Hero Section --------------------------------*/
 #hero {
     width: 100%;

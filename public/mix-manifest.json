@@ -4,5 +4,6 @@
     "/js/calculate-products.js": "/js/calculate-products.js",
     "/js/add-to-cart.js": "/js/add-to-cart.js",
     "/js/edit-category.js": "/js/edit-category.js",
+    "/js/navbar-scroll.js": "/js/navbar-scroll.js",
     "/css/app.css": "/css/app.css"
 }
