@@ -1,2 +1,2 @@
-$((function(){console.log("here"),$(document).scroll((function(){var o=$(".navbar");o.toggleClass("scrolled",$(this).scrollTop()>o.height())}))}));
+$((function(){$(document).scroll((function(){var l=$(".navbar");l.toggleClass("scrolled",$(this).scrollTop()>l.height())}))}));
 //# sourceMappingURL=navbar-scroll.js.map

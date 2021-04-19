@@ -28,7 +28,9 @@
       <a href="#services" class="btn-get-started">Get Started</a>
     </div>
   </section>
+
   <main id="main">
+
     <section id="services">
       <div class="container-fluid">
         <div class="section-header">
@@ -65,5 +67,75 @@
         </div>
       </div>
     </section>
+
+     <section id="call-to-action">
+      <div class="container">
+        <div class="row" data-aos="zoom-in">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3 class="cta-title">Order now!</h3>
+            <p class="cta-text">Create a free account and start making your orders.</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="btn cta-btn align-middle" href="#">Order</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" class="text-dark">Link 1</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">Link 2</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">Link 3</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">Link 4</a>
+          </li>
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="#!" class="text-dark">Link 1</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">Link 2</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">Link 3</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">Link 4</a>
+          </li>
+        </ul>
+      </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong>Orderator</strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="">Michalis Tripolitsiotis</a>
+        </div>
+      </div>
+  </footer>
 @endsection
