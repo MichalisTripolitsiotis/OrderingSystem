@@ -15,6 +15,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#services">Services</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#customers">Feedback</a>
+        </li>
         <a href="{{ route('login') }}"><button class="btn btn-login ml-md-5 mr-2" type="submit">Login</button></a>
         <a href="{{ route('register') }}"><button class="btn btn-signup" type="submit">Sign up</button></a>
         </ul>
@@ -32,7 +35,7 @@
   <main id="main">
 
     <section id="services">
-      <div class="container-fluid">
+      <div class="container">
         <div class="section-header">
           <h3 class="section-title">How it works</h3>
         </div>
@@ -70,7 +73,7 @@
 
      <section id="call-to-action">
       <div class="container">
-        <div class="row" data-aos="zoom-in">
+        <div class="row">
           <div class="col-lg-9 text-center text-lg-left">
             <h3 class="cta-title">Order now!</h3>
             <p class="cta-text">Create a free account and start making your orders.</p>
@@ -81,60 +84,88 @@
         </div>
       </div>
     </section>
-  </main>
-    <footer id="footer">
-      <div class="footer-top">
-        <div class="container">
-          <div class="row">
-              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-0">Links</h5>
 
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!" class="text-dark">Link 1</a>
-          </li>
-          <li>
-            <a href="#!" class="text-dark">Link 2</a>
-          </li>
-          <li>
-            <a href="#!" class="text-dark">Link 3</a>
-          </li>
-          <li>
-            <a href="#!" class="text-dark">Link 4</a>
-          </li>
-        </ul>
-      </div>
-      <!--Grid column-->
-
-      <!--Grid column-->
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Links</h5>
-
-        <ul class="list-unstyled mb-0">
-          <li>
-            <a href="#!" class="text-dark">Link 1</a>
-          </li>
-          <li>
-            <a href="#!" class="text-dark">Link 2</a>
-          </li>
-          <li>
-            <a href="#!" class="text-dark">Link 3</a>
-          </li>
-          <li>
-            <a href="#!" class="text-dark">Link 4</a>
-          </li>
-        </ul>
-      </div>
+    <section id="customers">
+      <div class="container">
+        <div class="section-header">
+          <h3 class="section-title">What are customers say</h3>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-4">
+            <div class="box serviceBox">
+              <div class="service-content pt-4">
+                <h4 class="customer-title">John Wilson</h4>
+                <hr>
+                <div class="text-box">"Orderator is great. I would like to say thank you to all. App has got everything I need."</div>
+                <span class="stars">
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4">
+            <div class="box serviceBox">
+              <div class="service-content pt-4">
+                <h4 class="customer-title">Peter Smith</h4>
+                <hr>
+                <div class="text-box">"Very easy to use. Thank you so much for your help. Order is the real deal!"</div>
+                <span class="stars">
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4">
+            <div class="box serviceBox">
+              <div class="service-content pt-4">
+                <h4 class="customer-title">Jason Andrew</h4>
+                <hr>
+                <div class="text-box">"Wow what great service, I love it! I was amazed at the quality of food."</div>
+                <span class="stars">
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star-half-o checked" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4">
+            <div class="box serviceBox">
+              <div class="service-content pt-4">
+                <h4 class="customer-title">Lisa Edwards</h4>
+                <hr>
+                <div class="text-box">"It's exactly what I've been looking for. If you aren't sure, always go for Orderator."</div>
+                <span class="stars">
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                  <i class="fa fa-star checked" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+  </main>
+    <footer id="footer">
 
       <div class="container">
         <div class="copyright">
           &copy; Copyright <strong>Orderator</strong>. All Rights Reserved
         </div>
         <div class="credits">
-          Designed by <a href="">Michalis Tripolitsiotis</a>
+          Designed by <a href="https://github.com/MichalisTripolitsiotis">Michalis Tripolitsiotis</a>
         </div>
       </div>
   </footer>

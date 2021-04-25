@@ -41,8 +41,7 @@
 
 .navbar.scrolled {
     top: 0;
-    background-color: #d15357 !important;
-    color: black;
+    background-color: #000000 !important;
     transition: background-color 200ms linear;
 }
 
@@ -216,10 +215,25 @@
         color: #fff;
     }
 }
+/*Customers******************/
+#customers {
+    background: #fff;
+    background-size: cover;
+    padding: 80px 0;
+}
 
+#customers {
+    .stars {
+        display: inline-block;
+        padding-top: 10px;
+        .checked {
+            color: orange;
+        }
+    }
+}
 /*Footer******************/
 #footer {
-    background: #343b40;
+    background: #000000;
     padding: 30px 0;
     color: #fff;
     font-size: 14px;

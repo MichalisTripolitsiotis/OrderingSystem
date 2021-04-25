@@ -17,12 +17,12 @@ class Category extends Model
     protected $guarded = [];
 
     /**
-     *  Return the products of the order
+     *  Return the products of the category
      * 
-     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
     public function product()
     {
-        return $this->hasOne(Product::class);
+        return $this->hasMany(Product::class);
     }
 }
