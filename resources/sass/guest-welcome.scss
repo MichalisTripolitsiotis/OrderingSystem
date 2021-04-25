@@ -1,6 +1,6 @@
 /* Navbar --------------------------------*/
 
-.navbar {
+#guest-nav {
     top: 20px;
     .navbar-brand {
         font-size: 20px;
@@ -38,9 +38,8 @@
         border-radius: 20px;
     }
 }
-
 .navbar.scrolled {
-    top: 0;
+    top: 0 !important;
     background-color: #000000 !important;
     transition: background-color 200ms linear;
 }
@@ -48,6 +47,7 @@
 .navbar.scrolled .nav-link {
     color: #555;
 }
+
 /* Hero Section --------------------------------*/
 #hero {
     width: 100%;
