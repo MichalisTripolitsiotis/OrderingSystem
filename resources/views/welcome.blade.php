@@ -18,8 +18,8 @@
         <li class="nav-item">
           <a class="nav-link" href="#customers">Feedback</a>
         </li>
-        <a href="{{ route('login') }}"><button class="btn btn-login ml-md-5 mr-2" type="submit">Login</button></a>
-        <a href="{{ route('register') }}"><button class="btn btn-signup" type="submit">Sign up</button></a>
+        <a  style="cursor: pointer" data-toggle="modal" data-target="#loginModal"><button class="btn btn-login ml-md-5 mr-2" type="submit">{{ __('Login') }}</button></a>
+        <a style="cursor: pointer" data-toggle="modal" data-target="#registerModal"><button class="btn btn-signup" type="submit">Sign up</button></a>
         </ul>
       </div>
     </div>
@@ -169,4 +169,6 @@
         </div>
       </div>
   </footer>
+  @include('partials._login-modal')
+  @include('partials._register-modal')
 @endsection
