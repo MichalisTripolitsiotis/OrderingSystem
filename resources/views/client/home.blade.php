@@ -18,7 +18,7 @@
                                 </div>
                                 <div class="details">
                                     <h1>{{$category->name}}</h1>
-                                    <button class="btn btn-danger"><a href="{{ route('client.show', $category->id) }}">Go to category</a></button>
+                                    <button class="btn btn-danger"><a href="{{ route('client.show', $category) }}">Go to category</a></button>
                                 </div>
                             </div>
                         </div>

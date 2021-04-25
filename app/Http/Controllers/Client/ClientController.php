@@ -17,21 +17,6 @@ class ClientController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $products = Product::all();
-        return view('client.home', [
-            'products' => $products,
-            'categories' => $categories
-        ]);
-    }
-
-    /**
-     * Display a listing of the Categories.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showCategories()
-    {
-        $categories = Category::all();
         return view('client.home', [
             'categories' => $categories
         ]);
@@ -45,12 +30,15 @@ class ClientController extends Controller
      */
     public function showProducts($id)
     {
-        $categories = Category::all();
-        $products = Category::find($id)->product->get();
-
-        return view('client.products', [
-            'products' => $products,
-            'categories' => $categories
-        ]);
+        if (request()->category) {
+            $products = Product::with('category')->whereHas('category', function ($query) {
+                $query->where('id', request()->category);
+            })->get();
+            $categories = Category::all();
+            return view('client.products', [
+                'products' => $products,
+                'categories' => $categories
+            ]);
+        }
     }
 }

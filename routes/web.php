@@ -58,7 +58,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
  */
 Route::group(['prefix' => 'client', 'namespace' => 'Client', 'middleware' => ['auth']], function () {
     Route::get('/', [ClientController::class, 'index'])->name('client.index');
-    Route::get('category/{id}', [ClientController::class, 'showProducts'])->name('client.show');
+    Route::get('category/{category}', [ClientController::class, 'showProducts'])->name('client.show');
 
     Route::group(['namespace' => 'Cart'], function () {
         Route::get('cart', [CartController::class, 'index'])->name('cart.index');
