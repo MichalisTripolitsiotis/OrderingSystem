@@ -24,8 +24,6 @@
       </div>
     </div>
   </nav>
-  @elseif (Auth::user()->isAdmin())
-    @include('partials._admin-nav')
   @else
     @include('partials._navbar-top')
   @endif
