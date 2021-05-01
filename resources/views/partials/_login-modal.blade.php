@@ -69,3 +69,16 @@
         </div>
     </div>
 </div>
+@section('scripts')
+@parent
+
+@if($errors->has('email') || $errors->has('password'))
+    <script>
+    $(function() {
+        $('#loginModal').modal({
+            show: true
+        });
+    });
+    </script>
+@endif
+@endsection

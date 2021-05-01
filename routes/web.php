@@ -29,6 +29,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [ProfileController::class, 'index'])->name('profile.index');
 
@@ -56,7 +57,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 /**
  * Client routes
  */
-Route::group(['prefix' => 'client', 'namespace' => 'Client', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'client', 'namespace' => 'Client', 'middleware' => ['auth', 'verified']], function () {
     Route::get('/', [ClientController::class, 'index'])->name('client.index');
     Route::get('category/{category}', [ClientController::class, 'showProducts'])->name('client.show');
 
