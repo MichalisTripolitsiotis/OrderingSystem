@@ -1,35 +1,34 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="container">    
         <div class="row">
-            <div class="category-list">
-                <div class="row">
-                    @if ($categories->isNotEmpty())
-                        @foreach ($categories as $category)
-                        <div class="col-5">
-                            <div class="wrapper mr-2 mt-4">
-                                <div class="container">
-                                    <div class="image">
-                                        <img src="images/default.jpg">
-                                    </div>
-                                </div>
-                                <div class="rectangle">
-                                    <div class="corner"></div>
-                                </div>
-                                <div class="details">
-                                    <h1>{{$category->name}}</h1>
-                                    <button class="btn btn-danger"><a href="{{ route('client.show', $category) }}">Go to category</a></button>
-                                </div>
+            @if ($categories->isNotEmpty())
+                @foreach ($categories as $category)
+                <div class="col-md-6">
+                    <div class="wrapper">
+                        <div class="container">
+                            <h1>{{$category->name}}</h1>
+                        </div>
+                        <div class="rectangle">
+                            <div class="corner"></div>
+                        </div>
+                        <div class="details">
+                                <div class="image">
+                                    <img class="img img-category"
+                                            src="{{ $category->image ? Storage::url($category->image) : asset('images/default.jpg') }}"
+                                            alt="Category avatar">
+                            </div>
+                            <div class="action-div">
+                                <button class="btn btn-lg btn-block"><a href="{{ route('client.show', $category) }}">Go to category</a></button>
                             </div>
                         </div>
-                        @endforeach
-                    @else
-                        <p class="zero-result-message">No categories found
-                        </p>
-                    @endif
+                    </div>
                 </div>
-                
-            </div>
+                @endforeach
+            @else
+                <p class="zero-result-message">No categories found
+                </p>
+            @endif
         </div>
     </div>
 @endsection

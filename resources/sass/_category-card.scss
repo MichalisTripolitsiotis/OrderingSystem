@@ -1,46 +1,69 @@
 .wrapper {
+    margin-top: 70px;
     width: 400px;
     height: 500px;
     border-radius: 60px;
-    background: #130d0d;
+    background: #fff;
     .container {
         width: 400px;
-        height: 220px;
+        height: 80px;
         border-radius: 0px 50px 0px;
-        border: solid 1px #e22121;
-        background: #e22121;
-
-        .image {
-            img {
-                width: 218px;
-                height: 220px;
-            }
+        background: #e86267;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h1 {
+            text-align: center;
+            font-size: 26px;
+            color: #fff;
+            margin-bottom: 5px;
         }
     }
     .rectangle {
         width: 60px;
         height: 59px;
-        background: #e22121;
+        background: linear-gradient(#e86267, #ee5b60);
         margin-left: 340px;
 
         .corner {
             width: 60px;
             height: 60px;
-            border: solid 1px #130d0d;
-            background: #130d0d;
+            border: solid 1px #fff;
+            background: #fff;
             border-radius: 0px 40px 0px 0px;
         }
     }
     .details {
-        h1 {
-            width: 195px;
-            height: 66px;
-            color: #ffefef;
-            font-family: "Segoe UI";
-            font-size: 48px;
-            font-weight: 400;
-            line-height: 64px;
-            text-align: center;
+        .image {
+            img {
+                width: 400px;
+                height: 300px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .action-div {
+            background: #e86267;
+            width: 400px;
+            height: 120px;
+            padding: 27px 35px 35px;
+            border-radius: 0px 0px 60px 60px;
+
+            .btn {
+                padding: 0 2rem;
+                display: inline-block;
+                border: 1px solid rgba(5, 5, 5, 0.4);
+                height: 40px;
+                line-height: 40px;
+                border-radius: 20px;
+                a {
+                    color: #fff;
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+            }
         }
     }
 }
